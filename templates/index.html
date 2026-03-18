@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Music Structure Visualizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>AI 音楽構造可視化ツール</h1>
+    
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept=".mp3,.wav">
+        <button type="submit">解析開始</button>
+    </form>
+
+    <hr>
+
+    {% if plots %}
+        <h2>解析結果</h2>
+        <div class="result-container">
+<div class="ai-analysis-box" style="background: #eef; padding: 20px; border-radius: 10px; margin-top: 20px;">
+        <h3>🎹 AI専門家による構造解説</h3>
+        <p>{{ plots.ai_comment }}</p>
+    </div>            <div>
+                <h3>1. 和声構造（クロマグラム）</h3>
+                <img src="{{ url_for('static', filename=plots.chroma) }}" width="600">
+                <p>どの音がどのタイミングで強く鳴っているかを示します。</p>
+            </div>
+            <div>
+                <h3>2. 楽曲構造（セルフシミラリティ）</h3>
+                <img src="{{ url_for('static', filename=plots.ssm) }}" width="400">
+                <p>対角線以外の模様は、楽曲内のフレーズの繰り返しを意味します。</p>
+            </div>
+        </div>
+    {% endif %}
+</body>
+</html>

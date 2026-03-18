@@ -1,0 +1,15 @@
+# Pythonキャッシュ
+__pycache__/
+*.pyc
+
+# 仮想環境
+venv/
+flask_env/
+
+# ユーザーデータ（個人情報保護のため）
+uploads/
+static/plots/
+
+# 設定・秘密情報
+.env
+config.py
