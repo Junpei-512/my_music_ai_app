@@ -9,7 +9,7 @@ from scipy.stats import entropy
 # OpenAI APIを使う場合は pip install openai が必要です
 import google.generativeai as genai
 
-genai.configure(api_key="AIzaSyCmXc16WDU5TKFrFcga9FmPnTMdjIjqipo")
+genai.configure(api_key="API_KEY_HERE")
 
 def generate_visualizations(file_path, output_dir):
     # 1. 音声の読み込み
